@@ -1,0 +1,62 @@
+<h2 style="text-align: center;">Enter User Details</h2>
+<div class="parent">
+<div class="container">
+    
+    <form class="form-horizontal" action="/action_page.php" [formGroup]="registerForm"  >
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">username:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="username" id="email" placeholder="Enter username" name="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2"  for="pwd">email:</label>
+        <div class="col-sm-10">          
+          <input type="email" class="form-control"  formControlName="email" id="pwd" placeholder="Enter email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">phone:</label>
+            <div class="col-sm-10">          
+              <input type="number" class="form-control" formControlName="phone" id="pwd" placeholder="Enter phone"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"name="phone">
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                    <div *ngIf="f.phone.errors.required">phone is required</div>
+                </div>
+            </div>
+          </div>
+          <div class="form-group" [formGroup]="registerForm" >
+                <label for="sel1" class="control-label col-sm-2">Gender</label>
+                <div class="col-sm-10">     
+                <select class="form-control" formControlName="gender"  id="sel1">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">DOB:</label>
+                    <div class="col-sm-10">          
+                      <input type="date" class="form-control"  id="pwd" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" name="dob">
+                      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                            <div *ngIf="f.dob.errors.required">DOB is required</div>
+                        </div>
+                    </div>
+                  </div>
+     
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>

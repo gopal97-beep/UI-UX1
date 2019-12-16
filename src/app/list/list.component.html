@@ -1,0 +1,13 @@
+<h2>Users List</h2>
+<div *ngFor="let u of user">
+<div class="card" style="width: 80%; margin-bottom: 5px;">
+        <div class="card-body">
+          <h5 class="card-title" style="color:blue">{{u.username}}</h5>
+         
+          <p class="card-text">Email: {{u.email}}</p>
+          <a routerLink="/details/{{u.id}}" class="btn btn-primary">Details</a>
+          <button style="margin-left: 20px;"class="btn btn-danger" (click)="delete(u.id)">Delete</button>
+         
+        </div>
+      </div>
+    </div>
